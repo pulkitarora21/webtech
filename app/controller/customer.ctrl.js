@@ -20,6 +20,6 @@
 				console.log($scope.menuItems);
 			});
 		})();
-		
 	});
+
 })();

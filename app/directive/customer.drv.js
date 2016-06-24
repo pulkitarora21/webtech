@@ -11,5 +11,19 @@
 			scope:false
 			}
 	});
+	angular.module("upper_directive").directive("listSelector",function(){
+		return{
+			restrict : 'EA',
+			templateUrl: 'app/template/listselector.html',
+			scope:false
+			}
+	});
+	angular.module("upper_directive").directive("listDisplay",function(){
+		return{
+			restrict : 'EA',
+			templateUrl: 'app/template/listdisplay.html',
+			scope:false
+			}
+	});
 })();
 
