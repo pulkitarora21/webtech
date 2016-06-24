@@ -63,3 +63,9 @@
 .navbar-inverse .navbar-nav > li > a {
     color: white;
 }
+
+#userinputmodal{
+    position: fixed;
+    top : 40%;
+    left: 40%;
+}
