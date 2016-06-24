@@ -9,4 +9,8 @@
 	angular.module("customer_module").controller("customerInfoController",function($scope){
 		 $scope.userInfo=JSON.parse(localStorage.getItem("user"));
 	});
+
+	angular.module("customer_module").controller("customerInfoController",function($scope){
+		 $scope.userInfo=JSON.parse(localStorage.getItem("user"));
+	});
 })();

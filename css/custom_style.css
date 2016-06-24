@@ -63,3 +63,8 @@
 .navbar-inverse .navbar-nav > li > a {
     color: white;
 }
+
+.tableheading{
+    background-color: silver;
+    color: white;
+}
