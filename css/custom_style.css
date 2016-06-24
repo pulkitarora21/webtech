@@ -69,3 +69,8 @@
     top : 40%;
     left: 40%;
 }
+
+.tableheading{
+    background-color: silver;
+    color: white;
+}
