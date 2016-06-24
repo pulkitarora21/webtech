@@ -6,64 +6,73 @@
             margin: 20px;
             position: relative;
         }
-        .cardHeader {
-            background-color:#027FF4;
-            font-size:14pt;
-            color:white;
-            padding:5px;
-            width:100%;
-        }
-        .cardContainer {
-            width:85%;
-        }
-        .cardBody {
-            padding-left: 5px;
-        }
-        .cardBodyLeft {
-            margin-top: 2px;
-        }
-        .cardBodyRight {
-            margin-left: 20px;
-            margin-top: 2px;
-        }
-        .cardBodyContent {
-            width: 100px;
-        }
-        .cardImage {
-            height:50px;width:50px;margin-top:10px;
-        }
-        .close {
-            font-size:15pt;
-            opacity: 1.0;
-        }
-        .cardClose {
-            color: white;
-            font-weight:bold;
-            margin-right:5px;
-        }
 
-        .formDiv {
-            background-color:#eee; 
-            width: 300px;
-            height: 500px;
-        }
+.cardHeader {
+    background-color:#027FF4;
+    font-size:14pt;
+    color:white;
+    padding:5px;
+    width:100%;
+}
+.cardContainer {
+    width:85%;
+}
+.cardBody {
+    padding-left: 5px;
+}
+.cardBodyLeft {
+    margin-top: 2px;
+}
+.cardBodyRight {
+    margin-left: 20px;
+    margin-top: 2px;
+}
+.cardBodyContent {
+    width: 100px;
+}
+.cardImage {
+    height:50px;width:50px;margin-top:10px;
+}
+.close {
+    font-size:15pt;
+    opacity: 1.0;
+}
+.cardClose {
+    color: white;
+    font-weight:bold;
+    margin-right:5px;
+}
 
-        .edit {
-            color: blue;
-            background-color: white;
-        }
+.formDiv {
+    background-color:#eee; 
+    width: 300px;
+    height: 500px;
+}
 
-        .navbar {
-            background-color: green;        }
+.edit {
+    color: blue;
+    background-color: white;
+}
 
-        .navbar-inverse .navbar-brand  {
-            color: white;
-        }
-        .navbar-inverse .navbar-nav > li > a {
-            color: white;
-        }
+.navbar {
+    background-color: green;        }
 
-        .restaurant_background{
-            background-image: url("../images/restaurant.jpg");
-            background-size: cover;
-        }
+.navbar-inverse .navbar-brand  {
+    color: white;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.restaurant_background{
+    background-image: url("../images/restaurant.jpg");
+    background-size: cover;
+}
+
+html { 
+background: url(/images/restaurant.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
