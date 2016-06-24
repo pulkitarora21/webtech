@@ -63,16 +63,3 @@
 .navbar-inverse .navbar-nav > li > a {
     color: white;
 }
-
-.restaurant_background{
-    background-image: url("../images/restaurant.jpg");
-    background-size: cover;
-}
-
-html { 
-background: url(/images/restaurant.jpg) no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-}
