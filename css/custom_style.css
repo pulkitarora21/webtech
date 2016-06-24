@@ -54,6 +54,16 @@
         }
 
         .navbar {
-            background-color: green;
+            background-color: green;        }
+
+        .navbar-inverse .navbar-brand  {
             color: white;
+        }
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+        }
+
+        .restaurant_background{
+            background-image: url("../images/restaurant.jpg");
+            background-size: cover;
         }
