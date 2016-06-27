@@ -110,11 +110,14 @@
 		 $scope.allRestaurants=[];
 		 $scope.orderByField = 'rating';
   		 $scope.reverseSort = false;
+
   		 $scope.filter=[];
   		 $scope.filter['chinese']=true;
   		 $scope.filter['indian']=true;
   		 $scope.filter['thai']=true;
   		 $scope.filter['vegetarian']=true;
+  		 $scope.range = new Array(5);
+  		 
 
 		 (function(){
 		 	RestaurantService.getAllRestaurants().then(function(result){
