@@ -53,7 +53,7 @@
 
 
 
-	angular.module("customer_module").controller("customerLoginController",function($scope){
+	angular.module("customer_module").controller("customerLoginController",function($scope , $rootScope){
 
 
 		$scope.userInfo=JSON.parse(localStorage.getItem("user"));
@@ -77,11 +77,14 @@
 			document.body.style.backgroundSize= "cover";
 
 			console.log(localStorage.getItem("user"));
-			if(localStorage.getItem("user")){
+			if( localStorage.getItem("user") &&
+				(typeof $rootScope.change!= 'undefined' && $rootScope.change==false)){
 				console.log("redirecting");
 				document.body.style.backgroundImage = 'none';
 				window.location.replace("#/");
 			}
+
+			$rootScope.change=false;
 		};
 
 		init();
