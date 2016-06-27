@@ -80,10 +80,17 @@
 		</ul>
 	</div>	
 	<div class="row">
-		<button ng-click="clearCart()">
+		<a href='/#/menu/{{restaurantId}}'>
+			Back to Menu
+		</a>
+		&nbsp
+		<a class="clear-cart" href="/#/">
+		<button ng-click="clearCart()" class="btn btn-danger">
 			Clear Cart
 		</button>
-		<button ng-click="purchase()">
+		</a>
+		&nbsp
+		<button ng-click="purchase()" class="btn btn-primary">
 			Purchase
 		</button>
 	</div>

@@ -72,12 +72,15 @@
 						<div class="col-sm-6">
 							Total Price: ${{totalPrice}}
 						</div>
-						<button ng-click="changeView('/checkout')">
+						<a href='/#/checkout'">
 							Checkout
-						</button>
-						<button ng-click="clearCart()">
-							Clear Cart
-						</button>
+						</a>
+						&nbsp
+						<a class="clear-cart" href="/#/">
+							<button ng-click="clearCart()" class="btn btn-danger">
+								Clear Cart
+							</button>
+						</a>
 					</li>
 				</ul>
 			</div>	

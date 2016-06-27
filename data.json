@@ -79,6 +79,10 @@
       },
       "totalPrice": 30.2,
       "id": 9
+    },
+    {
+      "totalPrice": 0,
+      "id": 10
     }
   ],
   "restaurant": [

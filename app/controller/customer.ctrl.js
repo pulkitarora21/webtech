@@ -29,6 +29,7 @@
 		
 		(function() {
 			RestaurantService.getRestaurantDetails($routeParams.id).then(function(result){
+				$rootScope.restaurantId = $routeParams.id;
 				$scope.restaurantDetails = result.data;
 				$scope.menuitems = $scope.restaurantDetails.menuItems;
 				console.log($scope.restaurantDetails);
