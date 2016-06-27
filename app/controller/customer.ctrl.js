@@ -20,6 +20,10 @@
 				$scope.menuitems = $scope.restaurantDetails.menuItems;
 				console.log($scope.restaurantDetails);
 			});
+
+			if($rootScope.totalPrice==undefined) {
+				$rootScope.totalPrice = 0;
+			}
 		})();
 
 		// $rootScope.cartItems = {};
