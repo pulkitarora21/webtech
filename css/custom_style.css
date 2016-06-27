@@ -64,6 +64,12 @@
     color: white;
 }
 
+#userinputmodal{
+    position: fixed;
+    top : 40%;
+    left: 40%;
+}
+
 .tableheading{
     background-color: silver;
     color: white;
