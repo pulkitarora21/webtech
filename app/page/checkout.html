@@ -10,27 +10,27 @@
 <div  ng-controller="OrderDetailsController">
 	<div class="row">
 		<ul class="list-group">
-			<li class="list-group-item" >
+			<li class="list-group-item alternatecolor" >
 				<h4 class="list-group-item-heading"> Your Order</h4>
 			</li>
 
-			<li class="list-group-item" >
+			<li class="list-group-item alternatecolor" >
 				<div class="list-group-item-text row">
-					<span class="col-sm-2">Qty</span>
-					<span class="col-sm-6">Item name</span>
+					<span class="col-sm-3">Qty</span>
+					<span class="col-sm-5">Item name</span>
 					<span class="col-sm-2">Price</span>
 					<span class="col-sm-2">Subtotal</span>
 				</div>
 			</li>
 			
-			<li class="list-group-item" ng-repeat="(cartitem, quantity) in cartItems">
+			<li class="list-group-item alternatecolor" ng-repeat="(cartitem, quantity) in cartItems">
 				<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 				<div class="list-group-item-text row">
-					<span class="col-sm-2">		
+					<span class="col-sm-3">		
 						<input type="number"
                                 	ng-model="cartItems[cartitem]" ng-change="updateTotal()" min="0"/>
 					</span>
-					<span class="col-sm-6">
+					<span class="col-sm-5">
 						{{cartitem}} 
 					</span>
 					<span class="col-sm-2">
@@ -42,7 +42,7 @@
 					
 				</div>
 			</li>
-			<li class="list-group-item">
+			<li class="list-group-item alternatecolor">
 				<div class="list-group-item-text row">
 					<div class="col-sm-8">
 					</div>
