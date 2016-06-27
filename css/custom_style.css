@@ -82,3 +82,5 @@
 .rightfloat{
     float: right;
 }
+
+.alternatecolor:nth-child(odd) { background: #f9f9f9; }
