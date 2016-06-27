@@ -6,7 +6,15 @@
 
 	angular.module("customer_module",["upper_directive","service_module"]);
 
-	angular.module("customer_module").controller("customerInfoController",function($scope){
+	angular.module("customer_module").run(function($rootScope) {
+        $rootScope.changeUserInfo = function () {
+			$rootScope.change=true;
+			window.location.replace("#/customer");
+		} 
+    });
+
+
+	angular.module("customer_module").controller("customerInfoController",function($scope , RestaurantService){
 		 $scope.userInfo=JSON.parse(localStorage.getItem("user"));
 	});
 
@@ -88,6 +96,8 @@
 
 	angular.module("customer_module").controller("restaurantDisplayController",function($scope,RestaurantService){
 		 $scope.allRestaurants=[];
+		 $scope.orderByField = 'rating';
+  		 $scope.reverseSort = false;
 
 		 (function(){
 		 	RestaurantService.getAllRestaurants().then(function(result){
@@ -101,7 +111,7 @@
 
 
 
-	angular.module("customer_module").controller("customerLoginController",function($scope , $rootScope){
+	angular.module("customer_module").controller("customerLoginController",function($scope , $rootScope , RestaurantService){
 
 
 		$scope.userInfo=JSON.parse(localStorage.getItem("user"));
