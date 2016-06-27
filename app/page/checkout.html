@@ -56,4 +56,9 @@
 			Purchase
 		</button>
 	</div>
+
+	<div ng-show="success">
+	<h4>Order Placed Successfully</h4>
+	<button type="button" class="btn btn-primary" ng-click="changeView('/')">Build Another Order</button>
+	</div>
 </div>
