@@ -52,6 +52,7 @@
 
 			if(restaurantId!=$rootScope.currentRestaurant && Object.keys($rootScope.cartItems).length>0) {
 				console.log("Can't add item from this restaurant while cart has items from other restaurants");
+				alert("Can't add item from this restaurant while cart has items from other restaurants. Empty your cart first!");
 			}
 			else {
 				$rootScope.currentRestaurant = restaurantId;
@@ -66,7 +67,14 @@
 				}
 				$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			}
-		}
+		};
+
+		$rootScope.clearCart = function() {
+			$rootScope.currentRestaurant = undefined;
+			$rootScope.cartItems = {};
+			$rootScope.priceItems = {};
+			$rootScope.totalPrice = 0;
+		};
 
 	});
 
@@ -82,12 +90,7 @@
 			$rootScope.totalPrice = Math.round(totalPrice*100)/100;
 		}
 
-		$scope.clearCart = function() {
-			$rootScope.currentRestaurant = undefined;
-			$rootScope.cartItems = {};
-			$rootScope.priceItems = {};
-			$rootScope.totalPrice = 0;
-		}
+		
 
 		$scope.purchase = function() {
 			order = {};
@@ -107,6 +110,11 @@
 		 $scope.allRestaurants=[];
 		 $scope.orderByField = 'rating';
   		 $scope.reverseSort = false;
+  		 $scope.filter=[];
+  		 $scope.filter['chinese']=true;
+  		 $scope.filter['indian']=true;
+  		 $scope.filter['thai']=true;
+  		 $scope.filter['vegetarian']=true;
 
 		 (function(){
 		 	RestaurantService.getAllRestaurants().then(function(result){
@@ -116,6 +124,16 @@
 		 		{}
 		 		);
 		 })();
+
+		
+		 
+		 $scope.filterBy = function () {
+		    return function (restaurant) {
+		      if ( $scope.filter[restaurant.cuisine] === true ) {
+		        return true;
+		      }
+		    }
+  		};
 	});
 
 
