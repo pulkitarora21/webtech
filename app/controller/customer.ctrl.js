@@ -10,6 +10,7 @@
 		 $scope.userInfo=JSON.parse(localStorage.getItem("user"));
 	});
 
+
 	angular.module("customer_module").controller("RestaurantDetailsController",function($scope, $rootScope, $routeParams, RestaurantService){
 
 		//$scope.menuItems = [];
@@ -51,13 +52,25 @@
 				$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			}
 		}
+	});
 
 
+	angular.module("customer_module").controller("restaurantDisplayController",function($scope,RestaurantService){
+		 $scope.allRestaurants=[];
+
+		 (function(){
+		 	RestaurantService.getAllRestaurants().then(function(result){
+		 			$scope.allRestaurants=result.data;
+		 			console.log($scope.allRestaurants);
+		 		},
+		 		{}
+		 		);
+		 })();
 	});
 
 
 
-	angular.module("customer_module").controller("customerLoginController",function($scope){
+	angular.module("customer_module").controller("customerLoginController",function($scope , $rootScope){
 
 
 		$scope.userInfo=JSON.parse(localStorage.getItem("user"));
@@ -81,11 +94,14 @@
 			document.body.style.backgroundSize= "cover";
 
 			console.log(localStorage.getItem("user"));
-			if(localStorage.getItem("user")){
+			if( localStorage.getItem("user") &&
+				(typeof $rootScope.change!= 'undefined' && $rootScope.change==false)){
 				console.log("redirecting");
 				document.body.style.backgroundImage = 'none';
 				window.location.replace("#/");
 			}
+
+			$rootScope.change=false;
 		};
 
 		init();
