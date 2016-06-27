@@ -18,7 +18,7 @@
 			templateUrl: 'app/page/restaurant.html'
 		})
 		
-		.when("/menu/:restaurantName",{
+		.when("/menu/:id",{
 			templateUrl: 'app/page/restaurant_details.html'
 		})
 		.when("/checkout",{
