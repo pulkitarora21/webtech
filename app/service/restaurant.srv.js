@@ -9,9 +9,9 @@
 
 	angular.module("service_module").service("RestaurantService",function($http,$q){
 		
-		this.getRestaurantDetails = function(name) {
+		this.getRestaurantDetails = function(id) {
 			var deferred = $q.defer();
-			$http.get("http://localhost:9000/restaurant?name="+name).then(
+			$http.get("http://localhost:9000/restaurant/"+id).then(
 				function(data) {
 					deferred.resolve(data);
 				},
@@ -23,7 +23,7 @@
 		}
 
 		this.getAllRestaurants=function(){
-			var deferred=q.defer();
+			var deferred=$q.defer();
 			$http.get("http://localhost:9000/restaurant").then(
 				function(data) {
 				deferred.resolve(data);	
