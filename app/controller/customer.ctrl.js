@@ -70,7 +70,12 @@
 
 
 		$scope.userInfo=JSON.parse(localStorage.getItem("user"));
+
 		$scope.newInfo = {};
+
+		if($scope.userInfo){
+			$scope.newInfo = $scope.userInfo;
+		}
 
 		$scope.name = null;
 		$scope.address = null;
@@ -101,6 +106,7 @@
 		};
 
 		init();
+
 	});
 
 })();
