@@ -38,27 +38,27 @@
 
 			<li class="list-group-item alternatecolor" >
 				<div class="list-group-item-text row">
-					<span class="col-sm-3">Qty</span>
-					<span class="col-sm-5">Item name</span>
-					<span class="col-sm-2">Price</span>
-					<span class="col-sm-2">Subtotal</span>
+					<span class="col-sm-3 col-xs-3">Qty</span>
+					<span class="col-sm-5 col-xs-5">Item name</span>
+					<span class="col-sm-2 col-xs-2">Price</span>
+					<span class="col-sm-2 col-xs-2">Subtotal</span>
 				</div>
 			</li>
 			
 			<li class="list-group-item alternatecolor" ng-repeat="(cartitem, quantity) in cartItems">
 				<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 				<div class="list-group-item-text row">
-					<span class="col-sm-3">		
+					<span class="col-sm-3 col-xs-3">		
 						<input type="number"
                                 	ng-model="cartItems[cartitem]" ng-change="updateTotal()" min="0"/>
 					</span>
-					<span class="col-sm-5">
+					<span class="col-sm-5 col-xs-5">
 						{{cartitem}} 
 					</span>
-					<span class="col-sm-2">
+					<span class="col-sm-2 col-xs-2">
 						{{priceItems[cartitem]}} 
 					</span>
-					<span class="col-sm-2">
+					<span class="col-sm-2 col-xs-2">
 						{{priceItems[cartitem] * quantity}} 
 					</span>
 					
@@ -66,12 +66,12 @@
 			</li>
 			<li class="list-group-item alternatecolor">
 				<div class="list-group-item-text row">
-					<div class="col-sm-8">
+					<div class="col-sm-8 col-xs-8">
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-2 col-xs-2">
 						Total Price: 
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-2 col-xs-2">
 						${{totalPrice}}
 					</div>	
 				</div>
