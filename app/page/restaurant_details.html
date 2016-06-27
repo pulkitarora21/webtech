@@ -22,10 +22,10 @@
 					</li>
 					<li class="list-group-item" >
 						<div class="list-group-item-text row">
-						<span class="col-sm-8">
+						<span class="col-sm-8 col-xs-8">
 							<b>Item Name</b> 
 						</span>	
-						<span class="col-sm-3">
+						<span class="col-sm-3 col-xs-3">
 							<b>Price</b> 
 						</span>
 						</div>
@@ -36,10 +36,10 @@
 					<li class="list-group-item" ng-repeat="menuitem in menuitems">
 						<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 						<div class="list-group-item-text row">
-						<span class="col-sm-8">
+						<span class="col-sm-8 col-xs-8">
 							{{menuitem.name}} 
 						</span>	
-						<span class="col-sm-3">
+						<span class="col-sm-3 col-xs-3">
 							{{menuitem.price}} 
 						</span>
 						<button ng-click="addToCart(menuitem, restaurantDetails.id)">
@@ -63,13 +63,13 @@
 					<li class="list-group-item" ng-repeat="(cartitem, quantity) in cartItems">
 						<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 						<div class="list-group-item-text row">
-							<span class="col-sm-1">		
+							<span class="col-sm-1 col-xs-1">		
 							</span>
 							{{quantity}} x {{cartitem}} 
 						</div>
 					</li>
 					<li class="list-group-item">
-						<div class="col-sm-6">
+						<div class="col-sm-6 col-xs-6">
 							Total Price: ${{totalPrice}}
 						</div>
 						<a href='/#/checkout'">

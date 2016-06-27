@@ -1,12 +1,12 @@
-<div class="col-sm-12" ng-controller="OrderDetailsController">
+
 
 <div class="row" ng-controller="customerInfoController">
-	<div class="col-sm-5">
+	<span class="col-sm-5">
 		<strong>Deliver to :</strong> <br><br>{{userInfo.name}} <br> {{userInfo.address}} <br>
 		<a href="" ng-click="changeUserInfo()" value="Change"> Change </a> 
-	</div>
+	</span>
 
-	<div class="rightfloat">
+	<span class="col-sm-5 pull-right">
 			<div class="leftfloat">Payment </div><br/>
 
 			<form>
@@ -24,11 +24,11 @@
 			<input type="text" name="cvv" placeholder="CVV" required pattern="^[0-9]{3,4}$">
 			<input type="submit" class="btn btn-danger" name="Add Details" value="Verify Details">
 			</form>
-		</div>
+		</span>
 </div>
 
 <br>
-
+<div class="col-sm-12" ng-controller="OrderDetailsController">
 <div  ng-controller="OrderDetailsController">
 	<div class="row">
 		<ul class="list-group">
@@ -38,27 +38,27 @@
 
 			<li class="list-group-item alternatecolor" >
 				<div class="list-group-item-text row">
-					<span class="col-sm-3">Qty</span>
-					<span class="col-sm-5">Item name</span>
-					<span class="col-sm-2">Price</span>
-					<span class="col-sm-2">Subtotal</span>
+					<span class="col-sm-3 col-xs-3">Qty</span>
+					<span class="col-sm-5 col-xs-5">Item name</span>
+					<span class="col-sm-2 col-xs-2">Price</span>
+					<span class="col-sm-2 col-xs-2">Subtotal</span>
 				</div>
 			</li>
 			
 			<li class="list-group-item alternatecolor" ng-repeat="(cartitem, quantity) in cartItems">
 				<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 				<div class="list-group-item-text row">
-					<span class="col-sm-3">		
+					<span class="col-sm-3 col-xs-3">		
 						<input type="number"
                                 	ng-model="cartItems[cartitem]" ng-change="updateTotal()" min="0"/>
 					</span>
-					<span class="col-sm-5">
+					<span class="col-sm-5 col-xs-5">
 						{{cartitem}} 
 					</span>
-					<span class="col-sm-2">
+					<span class="col-sm-2 col-xs-2">
 						{{priceItems[cartitem]}} 
 					</span>
-					<span class="col-sm-2">
+					<span class="col-sm-2 col-xs-2">
 						{{priceItems[cartitem] * quantity}} 
 					</span>
 					
@@ -66,12 +66,12 @@
 			</li>
 			<li class="list-group-item alternatecolor">
 				<div class="list-group-item-text row">
-					<div class="col-sm-8">
+					<div class="col-sm-8 col-xs-8">
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-2 col-xs-2">
 						Total Price: 
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-2 col-xs-2">
 						${{totalPrice}}
 					</div>	
 				</div>
