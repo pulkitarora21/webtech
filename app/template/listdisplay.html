@@ -5,16 +5,10 @@
 <tr>
 	<th>Name</th><th></th><th>Rating</th>
 </tr>
-<tr>
-	<td>Chinese</td><td><input type="checkbox" name="Chinese" ng-model="chineseChecked"></td>
-</tr>
-<tr>
-	<td>Indian</td><td><input type="checkbox" name="Indian" ng-model="indianChecked"></td>
-</tr>
-<tr>
-	<td>Thai</td><td><input type="checkbox" name="Thai" ng-model="thaiChecked"></td>
-</tr>
-<tr>
-	<td>Vegeterian</td><td><input type="checkbox" name="Vegeterian" ng-model="vegetarianChecked"></td>
+
+<tr ng-repeat="restaurant in allRestaurants">
+	<td class="col-md-2 col-sm-2"><img class="img-rounded img-display" ng-src="/images/{{restaurant.id}}.png"></td>
+	<td class="col-md-5 col-sm-5">{{restaurant.name}}<br>{{restaurant.description}}</td>
+	<td class="col-md-1 col-sm-1">{{restaurant.rating}}</td>
 </tr>
 </table>
