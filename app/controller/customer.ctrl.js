@@ -6,11 +6,15 @@
 
 	angular.module("customer_module",["upper_directive","service_module"]);
 
-	angular.module("customer_module").run(function($rootScope) {
+	angular.module("customer_module").run(function($rootScope, $location) {
         $rootScope.changeUserInfo = function () {
 			$rootScope.change=true;
-			window.location.replace("#/customer");
+			$location.path("#/customer");
 		} 
+
+		$rootScope.changeView = function(view) {
+			$location.path(view);
+		}
     });
 
 
@@ -64,12 +68,12 @@
 			}
 		}
 
-		$scope.changeView = function(view) {
-			$location.path(view);
-		}
 	});
 
 	angular.module("customer_module").controller("OrderDetailsController",function($scope, $rootScope, RestaurantService) {
+		
+		$scope.success=false;
+
 		$scope.updateTotal = function() {
 			totalPrice = 0;
 			Object.keys($rootScope.cartItems).forEach(function(cartItem) {
@@ -91,6 +95,7 @@
 			order['cartItems'] = $rootScope.cartItems;
 			order['totalPrice'] = $rootScope.totalPrice;
 			RestaurantService.saveOrder(order);
+			$scope.success=true;
 		}
 	});
 
