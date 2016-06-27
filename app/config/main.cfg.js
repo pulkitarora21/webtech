@@ -5,7 +5,7 @@
 */
 
 (function() {
-	angular.module("main_module",["ngRoute","customer_module","upper_directive"]);
+	angular.module("main_module",["ngRoute","customer_module","upper_directive","service_module"]);
 
 	angular.module("main_module").config(function($routeProvider,$locationProvider){
 		$routeProvider

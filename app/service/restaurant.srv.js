@@ -22,6 +22,20 @@
 			return deferred.promise;
 		}
 
+		this.getAllRestaurants=function(){
+			var deferred=q.defer();
+			$http.get("http://localhost:9000/restaurant").then(
+				function(data) {
+				deferred.resolve(data);	
+				},
+				function(data){
+					deferred.reject(data);
+				}
+			);
+			return deferred.promise;
+		} 
+
 		
 	});
+
 })();

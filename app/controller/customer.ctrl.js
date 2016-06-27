@@ -10,39 +10,19 @@
 		 $scope.userInfo=JSON.parse(localStorage.getItem("user"));
 	});
 
-	angular.module("customer_module").controller("RestaurantDetailsController",function($scope, $rootScope, $routeParams, RestaurantService){
 
-		//$scope.menuItems = [];
-		
-		(function() {
-			RestaurantService.getRestaurantDetails($routeParams.restaurantName).then(function(result){
-				$scope.restaurantDetails = result.data[0];
-				$scope.menuitems = $scope.restaurantDetails.menuItems;
-				console.log($scope.restaurantDetails);
-			});
-		})();
+	angular.module("customer_module").controller("restaurantDisplayController",function($scope){
+		 $scope.allRestaurants=[];
 
-		$rootScope.cartItems = {};
-		$rootScope.currentRestaurant= "";
-		$scope.addToCart = function(menuItem, restaurantName) {
-			if($rootScope.currentRestaurant==""){
-				$rootScope.currentRestaurant = restaurantName;
-			}
-
-			if(restaurantName!=$rootScope.currentRestaurant && Object.keys($rootScope.cartItems).length>0) {
-				console.log("Can't add item from this restaurant while cart has items from other restaurants");
-			}
-			else {
-				if($rootScope.cartItems[menuItem.name]==undefined) {
-					$rootScope.cartItems[menuItem.name] = 1;
-				}
-				else {
-					$rootScope.cartItems[menuItem.name] += 1;
-				}
-			}
-		}
-
-
+		 (function(){
+		 	RestaurantService.getAllRestaurants().then(function(result){
+		 			$scope.allRestaurants=result.data;
+		 			console.log($scope.allRestaurants);
+		 		},
+		 		{}
+		 		);
+		 })();
 	});
+
 
 })();
