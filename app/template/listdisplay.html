@@ -18,6 +18,6 @@
 <tr ng-repeat="restaurant in allRestaurants|orderBy:orderByField:reverseSort|filter:filterBy()">
 	<td class="col-md-2 col-sm-2"><img class="img-rounded img-display" ng-src="/images/{{restaurant.id}}.png"></td>
 	<td class="col-md-5 col-sm-5"><a href="/#/menu/{{restaurant.id}}">{{restaurant.name}}</a><br>{{restaurant.description}}</td>
-	<td class="col-md-1 col-sm-1">{{restaurant.rating}}</td>
+	<td class="col-md-1 col-sm-1"><span class="glyphicon glyphicon-star" ng-repeat="i in range.slice(0,restaurant.rating) track by $index"/></td>
 </tr>
 </table>
