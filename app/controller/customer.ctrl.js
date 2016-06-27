@@ -110,6 +110,11 @@
 		 $scope.allRestaurants=[];
 		 $scope.orderByField = 'rating';
   		 $scope.reverseSort = false;
+  		 $scope.filter=[];
+  		 $scope.filter['chinese']=true;
+  		 $scope.filter['indian']=true;
+  		 $scope.filter['thai']=true;
+  		 $scope.filter['vegetarian']=true;
 
 		 (function(){
 		 	RestaurantService.getAllRestaurants().then(function(result){
@@ -119,6 +124,16 @@
 		 		{}
 		 		);
 		 })();
+
+		
+		 
+		 $scope.filterBy = function () {
+		    return function (restaurant) {
+		      if ( $scope.filter[restaurant.cuisine] === true ) {
+		        return true;
+		      }
+		    }
+  		};
 	});
 
 
