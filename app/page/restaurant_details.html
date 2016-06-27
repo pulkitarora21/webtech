@@ -1,29 +1,51 @@
-<div class="container">
+<div class="container" ng-controller="RestaurantDetailsController">
 	<div class="row">
 		<div class="col-sm-4 col-md-3">
 			<img src="images/restaurants1.jpg" class="img-circle" alt="Cinque Terre" width="150" height="150">
 		</div>
 		<div class="col-sm-8 col-md-9">
-			<h2>Restaurant name</h2>
-			Description here! 
+			<h2>{{restaurantDetails.name}}</h2>
+			{{restaurantDetails.description}}
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-sm-10 col-md-7" ng-controller="MenuItemsController">
+		<div class="col-sm-10 col-md-7" >
 			Menu
 			<div class="row">
-				<table class="table table-stripped">
-					<tr>
-						<th>ID</th><th>Name</th><th>Price</th>
-					</tr>
-					<tr>
-						<td>100</td><td>First</td><td>49994.44</td>
-					</tr>
-					<tr>
-						<td>101</td><td>Second</td><td>83884.44</td>
-					</tr>
-				</table>
+				<ul class="list-group">
+					<li class="list-group-item" >
+						<div class="list-group-item-text row">
+						<span class="col-sm-8">
+							<b>Item Name</b> 
+						</span>	
+						<span class="col-sm-3">
+							<b>Price</b> 
+						</span>
+						</div>
+						<!-- <h4 class="list-group-item-heading"> Name</h4> 
+						<p class="list-group-item-text"> Price </p> -->
+					</li>
+					
+					<li class="list-group-item" ng-repeat="menuitem in menuitems">
+						<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
+						<div class="list-group-item-text row">
+						<span class="col-sm-8">
+							{{menuitem.name}} 
+						</span>	
+						<span class="col-sm-3">
+							{{menuitem.price}} 
+						</span>
+						<button ng-click="addToCart(menuitem)">
+							+ 
+						</button>
+						</div>
+						
+					</li>
+						
+				</ul>
+					
+				
 			</div>	
 		</div>
 		<div class="col-sm-2 col-md-1">
@@ -32,18 +54,27 @@
 		<div class="col-sm-10 col-md-4">
 			Your Order
 			<div class="row">
-				<table class="table table-stripped">
-					<tr>
-						<th>ID</th><th>Name</th><th>Price</th>
-					</tr>
-					<tr>
-						<td>100</td><td>First</td><td>49994.44</td>
-					</tr>
-					<tr>
-						<td>101</td><td>Second</td><td>83884.44</td>
-					</tr>
-				</table>
-			</div>
+				<ul class="list-group">
+					<li class="list-group-item" >
+						<h4 class="list-group-item-heading"> Your Order</h4>
+					</li>
+					
+					<li class="list-group-item" ng-repeat="(cartitem, quantity) in cartItems">
+						<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
+						<div class="list-group-item-text row">
+							<span class="col-sm-1">
+								
+							</span>
+							{{quantity}} X {{cartitem}} 
+						
+						</div>
+						
+					</li>
+						
+				</ul>
+					
+				
+			</div>	
 		</div>
 
 	</div>
