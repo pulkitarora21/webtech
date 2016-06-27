@@ -11,7 +11,7 @@
 	});
 
 
-	angular.module("customer_module").controller("RestaurantDetailsController",function($scope, $rootScope, $routeParams, RestaurantService){
+	angular.module("customer_module").controller("RestaurantDetailsController",function($scope, $rootScope, $location, $routeParams, RestaurantService){
 
 		//$scope.menuItems = [];
 		
@@ -51,6 +51,10 @@
 				}
 				$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			}
+		}
+
+		$scope.changeView = function(view) {
+			$location.path(view);
 		}
 	});
 
