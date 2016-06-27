@@ -63,6 +63,8 @@
 
 	angular.module("customer_module").controller("restaurantDisplayController",function($scope,RestaurantService){
 		 $scope.allRestaurants=[];
+		 $scope.orderByField = 'rating';
+  		 $scope.reverseSort = false;
 
 		 (function(){
 		 	RestaurantService.getAllRestaurants().then(function(result){
