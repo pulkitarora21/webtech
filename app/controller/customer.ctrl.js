@@ -10,13 +10,14 @@
 		 $scope.userInfo=JSON.parse(localStorage.getItem("user"));
 	});
 
+
 	angular.module("customer_module").controller("RestaurantDetailsController",function($scope, $rootScope, $routeParams, RestaurantService){
 
 		//$scope.menuItems = [];
 		
 		(function() {
-			RestaurantService.getRestaurantDetails($routeParams.restaurantName).then(function(result){
-				$scope.restaurantDetails = result.data[0];
+			RestaurantService.getRestaurantDetails($routeParams.id).then(function(result){
+				$scope.restaurantDetails = result.data;
 				$scope.menuitems = $scope.restaurantDetails.menuItems;
 				console.log($scope.restaurantDetails);
 			});
@@ -25,14 +26,14 @@
 		// $rootScope.cartItems = {};
 		// $rootScope.currentRestaurant= "";
 		// $rootScope.totalPrice = 0;
-		$scope.addToCart = function(menuItem, restaurantName) {
+		$scope.addToCart = function(menuItem, restaurantId) {
 			if($rootScope.currentRestaurant==undefined){
-				$rootScope.currentRestaurant = restaurantName;
+				$rootScope.currentRestaurant = restaurantId;
 				$rootScope.cartItems = {};
 				$rootScope.totalPrice = 0;
 			}
 
-			if(restaurantName!=$rootScope.currentRestaurant && Object.keys($rootScope.cartItems).length>0) {
+			if(restaurantId!=$rootScope.currentRestaurant && Object.keys($rootScope.cartItems).length>0) {
 				console.log("Can't add item from this restaurant while cart has items from other restaurants");
 			}
 			else {
@@ -47,8 +48,20 @@
 				$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			}
 		}
+	});
 
 
+	angular.module("customer_module").controller("restaurantDisplayController",function($scope,RestaurantService){
+		 $scope.allRestaurants=[];
+
+		 (function(){
+		 	RestaurantService.getAllRestaurants().then(function(result){
+		 			$scope.allRestaurants=result.data;
+		 			console.log($scope.allRestaurants);
+		 		},
+		 		{}
+		 		);
+		 })();
 	});
 
 

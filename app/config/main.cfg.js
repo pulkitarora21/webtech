@@ -5,7 +5,7 @@
 */
 
 (function() {
-	angular.module("main_module",["ngRoute","customer_module","upper_directive"]);
+	angular.module("main_module",["ngRoute","customer_module","upper_directive","service_module"]);
 
 	angular.module("main_module").config(function($routeProvider,$locationProvider){
 		$routeProvider
@@ -18,7 +18,7 @@
 			templateUrl: 'app/page/restaurant.html'
 		})
 		
-		.when("/menu/:restaurantName",{
+		.when("/menu/:id",{
 			templateUrl: 'app/page/restaurant_details.html'
 		})
 		.when("/checkout",{
