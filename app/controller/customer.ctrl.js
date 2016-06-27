@@ -9,7 +9,7 @@
 	angular.module("customer_module").run(function($rootScope, $location) {
         $rootScope.changeUserInfo = function () {
 			$rootScope.change=true;
-			$location.path("#/customer");
+			$location.path("#customer");
 		} 
 
 		$rootScope.changeView = function(view) {
