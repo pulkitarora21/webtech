@@ -1,7 +1,7 @@
 <div class="alert alert-info tableheading">
 	{{allRestaurants.length}} Restaurants found!
 </div>
-<table class="table table-stripped">
+<table class="table table-striped ">
 <tr>
 	<th>
 		<a href="#/" ng-click="orderByField='name'; reverseSort = !reverseSort">
@@ -15,7 +15,7 @@
       </a>
     </th>
 </tr>
-<tr ng-repeat="restaurant in allRestaurants|orderBy:orderByField:reverseSort">
+<tr ng-repeat="restaurant in allRestaurants|orderBy:orderByField:reverseSort|filter:filterBy()">
 	<td class="col-md-2 col-sm-2"><img class="img-rounded img-display" ng-src="/images/{{restaurant.id}}.png"></td>
 	<td class="col-md-5 col-sm-5"><a href="/#/menu/{{restaurant.id}}">{{restaurant.name}}</a><br>{{restaurant.description}}</td>
 	<td class="col-md-1 col-sm-1">{{restaurant.rating}}</td>
