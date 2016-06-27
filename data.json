@@ -19,6 +19,58 @@
       },
       "totalPrice": 24.8,
       "id": 2
+    },
+    {
+      "restaurantId": "chutneychang",
+      "cartItems": {
+        "Chicken Manchow Soup": 4,
+        "Lung Fung Veg Soup": 1,
+        "Veg Dimsum": 1
+      },
+      "totalPrice": 35.08,
+      "id": 3
+    },
+    {
+      "restaurantId": "chutneychang",
+      "cartItems": {
+        "Chicken Manchow Soup": 4,
+        "Chicken Dimsum": 1
+      },
+      "totalPrice": 30.75,
+      "id": 4
+    },
+    {
+      "restaurantId": "chutneychang",
+      "cartItems": {
+        "Chicken Manchow Soup": 4,
+        "Chicken Dimsum": 1
+      },
+      "totalPrice": 30.75,
+      "id": 5
+    },
+    {
+      "restaurantId": "curryup",
+      "cartItems": {
+        "Aloo Gobi": 2
+      },
+      "totalPrice": 11.9,
+      "id": 6
+    },
+    {
+      "restaurantId": "curryup",
+      "cartItems": {
+        "Aloo Gobi": 3
+      },
+      "totalPrice": 17.85,
+      "id": 7
+    },
+    {
+      "restaurantId": "curryup",
+      "cartItems": {
+        "Aloo Gobi": 3
+      },
+      "totalPrice": 17.85,
+      "id": 8
     }
   ],
   "restaurant": [

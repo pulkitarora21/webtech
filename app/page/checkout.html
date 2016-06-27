@@ -57,8 +57,11 @@
 		</button>
 	</div>
 
-	<div ng-show="success">
-	<h4>Order Placed Successfully</h4>
-	<button type="button" class="btn btn-primary" ng-click="changeView('/')">Build Another Order</button>
+	<br>
+	<div class="row alert alert-info" ng-show="success">
+	<span>Order Placed Successfully</span>
+	<button  type="button" class=" rightfloat btn btn-primary" ng-click="changeView('/')">Build Another Order</button>
 	</div>
+
 </div>
+
