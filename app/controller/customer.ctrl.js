@@ -34,6 +34,7 @@
 			if($rootScope.currentRestaurant==undefined){
 				$rootScope.currentRestaurant = restaurantId;
 				$rootScope.cartItems = {};
+				$rootScope.priceItems = {};
 				$rootScope.totalPrice = 0;
 			}
 
@@ -43,6 +44,7 @@
 			else {
 				if($rootScope.cartItems[menuItem.name]==undefined) {
 					$rootScope.cartItems[menuItem.name] = 1;
+					$rootScope.priceItems[menuItem.name] = menuItem.price;
 					$rootScope.totalPrice += menuItem.price;
 				}
 				else {
