@@ -6,11 +6,15 @@
 
 	angular.module("customer_module",["upper_directive","service_module"]);
 
-	angular.module("customer_module").run(function($rootScope) {
+	angular.module("customer_module").run(function($rootScope, $location) {
         $rootScope.changeUserInfo = function () {
 			$rootScope.change=true;
-			window.location.replace("#/customer");
+			$location.path("#/customer");
 		} 
+
+		$rootScope.changeView = function(view) {
+			$location.path(view);
+		}
     });
 
 
@@ -48,6 +52,7 @@
 
 			if(restaurantId!=$rootScope.currentRestaurant && Object.keys($rootScope.cartItems).length>0) {
 				console.log("Can't add item from this restaurant while cart has items from other restaurants");
+				alert("Can't add item from this restaurant while cart has items from other restaurants. Empty your cart first!");
 			}
 			else {
 				$rootScope.currentRestaurant = restaurantId;
@@ -62,14 +67,21 @@
 				}
 				$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			}
-		}
+		};
 
-		$scope.changeView = function(view) {
-			$location.path(view);
-		}
+		$rootScope.clearCart = function() {
+			$rootScope.currentRestaurant = undefined;
+			$rootScope.cartItems = {};
+			$rootScope.priceItems = {};
+			$rootScope.totalPrice = 0;
+		};
+
 	});
 
 	angular.module("customer_module").controller("OrderDetailsController",function($scope, $rootScope, RestaurantService) {
+		
+		$scope.success=false;
+
 		$scope.updateTotal = function() {
 			totalPrice = 0;
 			Object.keys($rootScope.cartItems).forEach(function(cartItem) {
@@ -78,12 +90,7 @@
 			$rootScope.totalPrice = Math.round(totalPrice*100)/100;
 		}
 
-		$scope.clearCart = function() {
-			$rootScope.currentRestaurant = undefined;
-			$rootScope.cartItems = {};
-			$rootScope.priceItems = {};
-			$rootScope.totalPrice = 0;
-		}
+		
 
 		$scope.purchase = function() {
 			order = {};
@@ -91,6 +98,10 @@
 			order['cartItems'] = $rootScope.cartItems;
 			order['totalPrice'] = $rootScope.totalPrice;
 			RestaurantService.saveOrder(order);
+
+			$scope.success=true;
+
+			$scope.clearCart()
 		}
 	});
 
