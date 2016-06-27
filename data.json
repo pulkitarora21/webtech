@@ -3,11 +3,13 @@
     {
       "restaurantId": "chutneychang",
       "cartItems": {
-        "Chicken Manchow Soup": 2,
-        "Chicken Dimsum": 1,
-        "Veg Dimsum": 1
+        "Chicken Manchow Soup": 3,
+        "Veg Dimsum": 2,
+        "Pan Fried Chinese Green": 1,
+        "Exotic Veg Ginger Chilli": 1
       },
-      "id": 2
+      "totalPrice": 44.96,
+      "id": 1
     }
   ],
   "restaurant": [

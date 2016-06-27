@@ -89,6 +89,7 @@
 			order = {};
 			order['restaurantId']= $rootScope.currentRestaurant
 			order['cartItems'] = $rootScope.cartItems;
+			order['totalPrice'] = $rootScope.totalPrice;
 			RestaurantService.saveOrder(order);
 		}
 	});
