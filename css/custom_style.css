@@ -68,3 +68,15 @@
     background-color: silver;
     color: white;
 }
+
+
+.img-display {
+    height:100px;
+    width:100%;
+}
+
+.table-striped>tr:nth-child(odd)>td{
+    background-color: #f97777;
+}
+
+
