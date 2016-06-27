@@ -42,6 +42,7 @@
 				console.log("Can't add item from this restaurant while cart has items from other restaurants");
 			}
 			else {
+				$rootScope.currentRestaurant = restaurantId;
 				if($rootScope.cartItems[menuItem.name]==undefined) {
 					$rootScope.cartItems[menuItem.name] = 1;
 					$rootScope.priceItems[menuItem.name] = menuItem.price;
@@ -57,6 +58,30 @@
 
 		$scope.changeView = function(view) {
 			$location.path(view);
+		}
+	});
+
+	angular.module("customer_module").controller("OrderDetailsController",function($scope, $rootScope, RestaurantService) {
+		$scope.updateTotal = function() {
+			totalPrice = 0;
+			Object.keys($rootScope.cartItems).forEach(function(cartItem) {
+				totalPrice += $rootScope.cartItems[cartItem]*$rootScope.priceItems[cartItem];
+			});
+			$rootScope.totalPrice = Math.round(totalPrice*100)/100;
+		}
+
+		$scope.clearCart = function() {
+			$rootScope.currentRestaurant = undefined;
+			$rootScope.cartItems = {};
+			$rootScope.priceItems = {};
+			$rootScope.totalPrice = 0;
+		}
+
+		$scope.purchase = function() {
+			order = {};
+			order['restaurantId']= $rootScope.currentRestaurant
+			order['cartItems'] = $rootScope.cartItems;
+			RestaurantService.saveOrder(order);
 		}
 	});
 

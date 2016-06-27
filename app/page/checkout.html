@@ -1,4 +1,4 @@
-<div class="col-sm-12">
+<div class="col-sm-12" ng-controller="OrderDetailsController">
 	<div class="row">
 		<ul class="list-group">
 			<li class="list-group-item" >
@@ -18,7 +18,8 @@
 				<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 				<div class="list-group-item-text row">
 					<span class="col-sm-2">		
-						{{quantity}}
+						<input type="number"
+                                	ng-model="cartItems[cartitem]" ng-change="updateTotal()"/>
 					</span>
 					<span class="col-sm-6">
 						{{cartitem}} 
@@ -42,4 +43,12 @@
 			</li>
 		</ul>
 	</div>	
+	<div class="row">
+		<button ng-click="clearCart()">
+			Clear Cart
+		</button>
+		<button ng-click="purchase()">
+			Purchase
+		</button>
+	</div>
 </div>

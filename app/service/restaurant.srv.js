@@ -35,7 +35,9 @@
 			return deferred.promise;
 		} 
 
-		
+		this.saveOrder = function(order) {
+			$http.post("http://localhost:9000/orders/",order);
+		};
 	});
 
 })();
