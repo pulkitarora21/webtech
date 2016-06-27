@@ -48,6 +48,7 @@
 
 			if(restaurantId!=$rootScope.currentRestaurant && Object.keys($rootScope.cartItems).length>0) {
 				console.log("Can't add item from this restaurant while cart has items from other restaurants");
+				alert("Can't add item from this restaurant while cart has items from other restaurants. Empty your cart first!");
 			}
 			else {
 				$rootScope.currentRestaurant = restaurantId;
@@ -62,7 +63,14 @@
 				}
 				$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			}
-		}
+		};
+
+		$rootScope.clearCart = function() {
+			$rootScope.currentRestaurant = undefined;
+			$rootScope.cartItems = {};
+			$rootScope.priceItems = {};
+			$rootScope.totalPrice = 0;
+		};
 
 		$scope.changeView = function(view) {
 			$location.path(view);
@@ -78,12 +86,7 @@
 			$rootScope.totalPrice = Math.round(totalPrice*100)/100;
 		}
 
-		$scope.clearCart = function() {
-			$rootScope.currentRestaurant = undefined;
-			$rootScope.cartItems = {};
-			$rootScope.priceItems = {};
-			$rootScope.totalPrice = 0;
-		}
+		
 
 		$scope.purchase = function() {
 			order = {};
