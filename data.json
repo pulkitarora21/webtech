@@ -10,6 +10,15 @@
       },
       "totalPrice": 44.96,
       "id": 1
+    },
+    {
+      "restaurantId": "chutneychang",
+      "cartItems": {
+        "Chicken Manchow Soup": 3,
+        "Chicken Dimsum": 1
+      },
+      "totalPrice": 24.8,
+      "id": 2
     }
   ],
   "restaurant": [

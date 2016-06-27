@@ -91,6 +91,7 @@
 			order['cartItems'] = $rootScope.cartItems;
 			order['totalPrice'] = $rootScope.totalPrice;
 			RestaurantService.saveOrder(order);
+			$scope.clearCart()
 		}
 	});
 
