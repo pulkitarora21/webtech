@@ -1,4 +1,26 @@
 <div class="col-sm-12" ng-controller="OrderDetailsController">
+
+	<div class="row">
+		<div class="rightfloat">
+			<div class="leftfloat">Payment </div><br/>
+
+			<form>
+			<select class="leftfloat">
+			  <option value="visa">Visa</option>
+			  <option value="mastercard">MasterCard</option>
+			  <option value="maestro">Maestro</option>			  
+			</select><br/>
+
+			<input type="text" name="cardnumber" placeholder="Card No" 
+			pattern="^(6767|6334)(-\d{4}){3}($|\d{2,3}$)" required><br/>
+
+			<input type="text" name="validity" placeholder="Valid through" required 
+			pattern="^(0[1-9]|1[012])[-/.](19|20)\d\d$">
+			<input type="text" name="cvv" placeholder="CVV" required pattern="^[0-9]{3,4}$">
+			<input type="submit" class="btn btn-danger" name="Add Details" value="Verify Details">
+			</form>
+		</div>
+	</div>
 	<div class="row">
 		<ul class="list-group">
 			<li class="list-group-item" >
