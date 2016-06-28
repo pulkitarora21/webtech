@@ -65,7 +65,14 @@
 						<div class="list-group-item-text row">
 							<span class="col-sm-1 col-xs-1">		
 							</span>
+							<span class="col-sm-6 col-xs-6">	
 							{{quantity}} x {{cartitem}} 
+							</span>
+							<span class="col-sm-3 col-xs-3">
+								<button ng-click="removeItem(cartitem)">
+									-
+								</button>
+							</span>
 						</div>
 					</li>
 					<li class="list-group-item">

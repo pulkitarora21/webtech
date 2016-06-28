@@ -100,6 +100,11 @@
 	<span>Order Placed Successfully</span>
 	<button  type="button" class=" rightfloat btn btn-primary" ng-click="changeView('/')">Build Another Order</button>
 	</div>
+	<div class="row alert alert-danger" ng-show="noitem">
+	<span><b>0 Items in Cart!</b>
+	Please add atleast one item to place an order.</span>
+	</div>
+	
 
 </div>
 

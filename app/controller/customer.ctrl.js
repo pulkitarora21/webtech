@@ -70,6 +70,12 @@
 			}
 		};
 
+		$scope.removeItem = function(cartItem) {
+			$rootScope.totalPrice -= $rootScope.cartItems[cartItem]*$rootScope.priceItems[cartItem];
+			$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
+			delete $rootScope.cartItems[cartItem];
+		}
+
 		$rootScope.clearCart = function() {
 			$rootScope.currentRestaurant = undefined;
 			$rootScope.cartItems = {};
@@ -94,15 +100,20 @@
 		
 
 		$scope.purchase = function() {
-			order = {};
-			order['restaurantId']= $rootScope.currentRestaurant
-			order['cartItems'] = $rootScope.cartItems;
-			order['totalPrice'] = $rootScope.totalPrice;
-			RestaurantService.saveOrder(order);
+			if($rootScope.cartItems!=undefined && Object.keys($rootScope.cartItems).length > 0) {
+				order = {};
+				order['restaurantId']= $rootScope.currentRestaurant
+				order['cartItems'] = $rootScope.cartItems;
+				order['totalPrice'] = $rootScope.totalPrice;
+				RestaurantService.saveOrder(order);
 
-			$scope.success=true;
+				$scope.success=true;
 
-			$scope.clearCart()
+				$scope.clearCart()
+			}
+			else {
+				$scope.noitem = true;
+			}
 		}
 	});
 
