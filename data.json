@@ -83,6 +83,20 @@
     {
       "totalPrice": 0,
       "id": 10
+    },
+    {
+      "restaurantId": "curryup",
+      "cartItems": {},
+      "totalPrice": 0,
+      "id": 11
+    },
+    {
+      "restaurantId": "curryup",
+      "cartItems": {
+        "Aloo Gobi": 2
+      },
+      "totalPrice": 11.9,
+      "id": 12
     }
   ],
   "restaurant": [
