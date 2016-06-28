@@ -177,7 +177,7 @@
 				(typeof $rootScope.change!= 'undefined' && $rootScope.change==false)){
 				console.log("redirecting");
 				document.body.style.backgroundImage = 'none';
-				$location.path("#/");
+				window.location.replace("#/");
 			}
 
 			$rootScope.change=false;
