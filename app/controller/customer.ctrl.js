@@ -163,6 +163,10 @@
 		 	document.body.style.backgroundImage = 'none';
 		 	window.location.replace("#/");
 		 };
+
+		 $scope.$on('$routeChangeStart', function(next, current) { 
+   				document.body.style.backgroundImage = 'none';
+ 		 });
 	
 		var init = function () {
 		   	document.body.style.backgroundImage = "url('/images/restaurant.jpg')";
@@ -173,7 +177,7 @@
 				(typeof $rootScope.change!= 'undefined' && $rootScope.change==false)){
 				console.log("redirecting");
 				document.body.style.backgroundImage = 'none';
-				window.location.replace("#/");
+				$location.path("#/");
 			}
 
 			$rootScope.change=false;
