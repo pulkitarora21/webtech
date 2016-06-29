@@ -17,7 +17,7 @@
 		}
     });
 
-
+	// Fetching user information from local storage
 	angular.module("customer_module").controller("customerInfoController",function($scope , RestaurantService){
 		 $scope.userInfo=JSON.parse(localStorage.getItem("user"));
 	});
@@ -26,8 +26,8 @@
 	angular.module("customer_module").controller("RestaurantDetailsController",function($scope, $rootScope, $location, $routeParams, RestaurantService){
 
 		//$scope.menuItems = [];
-		
 		(function() {
+			// Get details of the restaurant whose id is passed 
 			RestaurantService.getRestaurantDetails($routeParams.id).then(function(result){
 				$rootScope.restaurantId = $routeParams.id;
 				$scope.restaurantDetails = result.data;
@@ -35,6 +35,7 @@
 				console.log($scope.restaurantDetails);
 			});
 
+			// Initialise totalPrice variable of rootScope to 0
 			if($rootScope.totalPrice==undefined) {
 				$rootScope.totalPrice = 0;
 			}
@@ -43,7 +44,10 @@
 		// $rootScope.cartItems = {};
 		// $rootScope.currentRestaurant= "";
 		// $rootScope.totalPrice = 0;
+
+		// Add an item to cart
 		$scope.addToCart = function(menuItem, restaurantId) {
+			// Initialise variables when first item is added to cart
 			if($rootScope.currentRestaurant==undefined){
 				$rootScope.currentRestaurant = restaurantId;
 				$rootScope.cartItems = {};
@@ -51,11 +55,12 @@
 				$rootScope.totalPrice = 0;
 			}
 
+			// IF there are items in cart from some other restaurants - don't allow this item to be added to cart
 			if(restaurantId!=$rootScope.currentRestaurant && Object.keys($rootScope.cartItems).length>0) {
 				console.log("Can't add item from this restaurant while cart has items from other restaurants");
 				alert("Can't add item from this restaurant while cart has items from other restaurants. Empty your cart first!");
 			}
-			else {
+			else { // Otherwise add the item to the cart
 				$rootScope.currentRestaurant = restaurantId;
 				if($rootScope.cartItems[menuItem.name]==undefined) {
 					$rootScope.cartItems[menuItem.name] = 1;
@@ -70,12 +75,14 @@
 			}
 		};
 
+		// Remove an item from the cart
 		$scope.removeItem = function(cartItem) {
 			$rootScope.totalPrice -= $rootScope.cartItems[cartItem]*$rootScope.priceItems[cartItem];
 			$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			delete $rootScope.cartItems[cartItem];
 		}
 
+		// Clear the cart
 		$rootScope.clearCart = function() {
 			$rootScope.currentRestaurant = undefined;
 			$rootScope.cartItems = {};
@@ -89,6 +96,7 @@
 		
 		$scope.success=false;
 
+		// Re-calculate totalPrice 
 		$scope.updateTotal = function() {
 			totalPrice = 0;
 			Object.keys($rootScope.cartItems).forEach(function(cartItem) {
@@ -98,7 +106,7 @@
 		}
 
 		
-
+		// Save order details
 		$scope.purchase = function() {
 			if($rootScope.cartItems!=undefined && Object.keys($rootScope.cartItems).length > 0) {
 				order = {};
@@ -132,14 +140,15 @@
 
 
 		 (function(){
+		 	// Get details of all the restaurants
 		 	RestaurantService.getAllRestaurants().then(function(result){
 		 			$scope.allRestaurants=result.data;
-		 			console.log($scope.allRestaurants);},{}
+		 			},{}
 		 		);
 		 })();
 
 		
-		 
+		 // Filter restaurants by cuisine
 		 $scope.filterBy = function () {
 		    return function (restaurant) {
 		      if ( $scope.filter[restaurant.cuisine] === true ) {
@@ -165,20 +174,22 @@
 		$scope.name = null;
 		$scope.address = null;
 
-		 $scope.updateCustomer = function () {
-		 	$scope.userInfo = {};
-		 	$scope.userInfo.name = $scope.name;
-		 	$scope.userInfo.address = $scope.address;
-		 	console.log($scope.newInfo);
-		 	localStorage.setItem("user", JSON.stringify($scope.newInfo));
-		 	document.body.style.backgroundImage = 'none';
-		 	window.location.replace("#/");
-		 };
+		// Update User information
+		$scope.updateCustomer = function () {
+			$scope.userInfo = {};
+			$scope.userInfo.name = $scope.name;
+			$scope.userInfo.address = $scope.address;
+			console.log($scope.newInfo);
+			localStorage.setItem("user", JSON.stringify($scope.newInfo));
+			document.body.style.backgroundImage = 'none';
+			window.location.replace("#/");
+		};
 
-		 $scope.$on('$routeChangeStart', function(next, current) { 
-   				document.body.style.backgroundImage = 'none';
- 		 });
-	
+		$scope.$on('$routeChangeStart', function(next, current) { 
+				document.body.style.backgroundImage = 'none';
+		 });
+		
+		// Initialisation for the first page
 		var init = function () {
 		   	document.body.style.backgroundImage = "url('/images/restaurant.jpg')";
 			document.body.style.backgroundSize= "cover";

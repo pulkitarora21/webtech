@@ -5,10 +5,11 @@
 */
 
 (function(){
-	angular.module("service_module",[]); //creating module ------ without [] is getter for the module
+	angular.module("service_module",[]); //creating module 
 
 	angular.module("service_module").service("RestaurantService",function($http,$q){
 		
+		// Get details of a restaurant whose id is passed
 		this.getRestaurantDetails = function(id) {
 			var deferred = $q.defer();
 			$http.get("http://localhost:9000/restaurant/"+id).then(
@@ -22,6 +23,7 @@
 			return deferred.promise;
 		}
 
+		// Get details of all the restaurants
 		this.getAllRestaurants=function(){
 			var deferred=$q.defer();
 			$http.get("http://localhost:9000/restaurant").then(
@@ -35,6 +37,7 @@
 			return deferred.promise;
 		} 
 
+		// Save details of the order
 		this.saveOrder = function(order) {
 			$http.post("http://localhost:9000/orders/",order);
 		};

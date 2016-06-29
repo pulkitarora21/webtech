@@ -97,6 +97,14 @@
       },
       "totalPrice": 11.9,
       "id": 12
+    },
+    {
+      "restaurantId": "chutneychang",
+      "cartItems": {
+        "Lung Fung Veg Soup": 0
+      },
+      "totalPrice": 0,
+      "id": 13
     }
   ],
   "restaurant": [
