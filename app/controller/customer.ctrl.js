@@ -76,7 +76,7 @@
 		};
 
 		// Remove an item from the cart
-		$scope.removeItem = function(cartItem) {
+		$rootScope.removeItem = function(cartItem) {
 			$rootScope.totalPrice -= $rootScope.cartItems[cartItem]*$rootScope.priceItems[cartItem];
 			$rootScope.totalPrice = Math.round($rootScope.totalPrice*100)/100;
 			delete $rootScope.cartItems[cartItem];

@@ -63,15 +63,14 @@
 					<li class="list-group-item" ng-repeat="(cartitem, quantity) in cartItems">
 						<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 						<div class="list-group-item-text row">
-							<span class="col-sm-1 col-xs-1">		
-							</span>
-							<span class="col-sm-6 col-xs-6">	
-							{{quantity}} x {{cartitem}} 
-							</span>
-							<span class="col-sm-3 col-xs-3">
-								<button ng-click="removeItem(cartitem)">
+							<span class="col-sm-1 col-xs-1">
+								<button ng-click="removeItem(cartitem)" class="btn btn-danger btn-sm">
 									-
 								</button>
+							</span>
+
+							<span class="col-sm-6 col-xs-6">	
+							{{quantity}} x {{cartitem}} 
 							</span>
 						</div>
 					</li>

@@ -48,11 +48,16 @@
 			<li class="list-group-item alternatecolor" ng-repeat="(cartitem, quantity) in cartItems">
 				<!-- <h4 class="list-group-item-heading"> {{menuitem.name}} </h4>  -->
 				<div class="list-group-item-text row">
+					<span class="col-sm-1 col-xs-1">
+						<button ng-click="removeItem(cartitem)" class="btn btn-danger btn-sm">
+							-
+						</button>
+					</span>
 					<span class="col-sm-3 col-xs-3">		
 						<input type="number"
-                                	ng-model="cartItems[cartitem]" ng-change="updateTotal()" min="0"/>
+                                	ng-model="cartItems[cartitem]" ng-change="updateTotal()" min="1"/>
 					</span>
-					<span class="col-sm-5 col-xs-5">
+					<span class="col-sm-4 col-xs-4">
 						{{cartitem}} 
 					</span>
 					<span class="col-sm-2 col-xs-2">
